@@ -1,6 +1,5 @@
 package huffman;
 
-
 public class HuffmanTuple {
 	final char letter;
 	final String representation;
@@ -11,7 +10,6 @@ public class HuffmanTuple {
 		this.representation = representation;
 	}
 
-	
 	@Override
 	public String toString() {
 		return this.letter + " => " + this.representation;

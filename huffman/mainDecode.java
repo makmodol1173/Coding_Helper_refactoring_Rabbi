@@ -54,27 +54,23 @@ public class mainDecode {
         } catch (Exception e) {
             System.out.println("\tInvalid filename");
         }
-        //System.out.println(compressFilepath);
         return compressFilepath;
     }
 
     public String decompressFile(String path) throws IOException {
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("\tEnter Decompress file name: ");
-        // exit();
+
         String decompressFileName = sc.nextLine().trim();
 
         if (!(decompressFileName.endsWith(".txt") || decompressFileName.endsWith(".java")) || decompressFileName.isEmpty()) {
-            System.out.println("\tInvalid filename");
-            //   compressFile(p);
+
             new Command().command();
 
         }
         String decompressfilePath = path + "\\" + decompressFileName;
         boolean exist = checkfileExist(decompressfilePath);
         if (exist) {
-            System.out.println("\tSame file already exist here");
            new Command().command();
         }
         return decompressfilePath;
