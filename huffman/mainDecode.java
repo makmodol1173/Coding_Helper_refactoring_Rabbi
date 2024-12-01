@@ -31,10 +31,7 @@ public class mainDecode {
         String filename = sc.nextLine().trim();
         String compressFilepath = path+"\\"+filename;
         boolean exist = new mainEncode().checkFileExist(compressFilepath);
-       // if(filename.isEmpty()){
-        //    System.out.println("\tInvalid filename");
-            
-     //   }
+        }
 
         try {
             if (filename.endsWith(".zip") && exist == true) {
@@ -68,7 +65,7 @@ public class mainDecode {
         // exit();
         String decompressFileName = sc.nextLine().trim();
 
-        if (!(decompressFileName.endsWith(".txt") | decompressFileName.endsWith(".java")) | decompressFileName.isEmpty()) {
+        if (!(decompressFileName.endsWith(".txt") || decompressFileName.endsWith(".java")) || decompressFileName.isEmpty()) {
             System.out.println("\tInvalid filename");
             //   compressFile(p);
             new Command().command();

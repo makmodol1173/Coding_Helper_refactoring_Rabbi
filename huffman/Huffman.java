@@ -5,8 +5,6 @@ import java.util.*;
 
 
 public class Huffman {
-
-	
 	public static Node huffman(Map<Character, Integer> map) {
 		PriorityQueue<Node> q = new PriorityQueue<>(convertMapToList(map));
 
@@ -179,11 +177,7 @@ public class Huffman {
 				handler.doWork(currentByte);
 			}
 		} catch (FileNotFoundException e) {
-			System.err.println("Could not find file with the given path of: " + filePath);
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	private static void readFromBinaryFileAndDoWork(String filePath, FileContentReader handler) {

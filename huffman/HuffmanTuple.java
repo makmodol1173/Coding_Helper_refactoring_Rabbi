@@ -2,8 +2,8 @@ package huffman;
 
 
 public class HuffmanTuple {
-	public char letter;
-	public String representation;
+	final char letter;
+	final String representation;
 
 	
 	public HuffmanTuple(char letter, String representation) {

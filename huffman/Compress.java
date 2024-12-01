@@ -24,9 +24,7 @@ public class Compress {
 		Node rootNode = Huffman.huffman(map);
 		
 		ArrayList<HuffmanTuple> encodings = Huffman.canonizeHuffmanTree(rootNode);
-		
-		          System.out.println(encodings);
-		System.out.println("=== Writing Compressed File to " + this.targetFilePath + " ====");
+
 		Huffman.writeEncodedFile(this.sourceFilePath, this.targetFilePath, encodings);
 		
 	}

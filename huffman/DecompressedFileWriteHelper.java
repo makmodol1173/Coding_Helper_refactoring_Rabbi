@@ -102,7 +102,7 @@ public class DecompressedFileWriteHelper extends FileWriteHelper {
 	@Override
 	public void doWork(int currentByte) {
 		if (this.currentState == State.FINISHED) {
-			return;
+			return doWork;
 		} else if (this.currentState == State.FIRST_BYTE) {
 			this.handleReadFirstByte(currentByte);
 		} else if (this.currentState == State.DICTIONARY) {

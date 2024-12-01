@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CompressedFileWriteHelper extends FileWriteHelper {
 
-	public Map<Character, String> map;
+	final Map<Character, String> map;
 
 	
 	public CompressedFileWriteHelper(String path, ArrayList<HuffmanTuple> encodings) {

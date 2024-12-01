@@ -8,17 +8,16 @@ import java.io.IOException;
 public abstract class FileWriteHelper implements FileContentReader {
 	private File file;
 	protected FileOutputStream fileOutputStream;
-	public String byteBuffer;
+	final String byteBuffer;
 	public static final int NUM_OF_BITS_TO_WRITE = 8;
 
 	
-	public FileWriteHelper(String path) {
+	protected FileWriteHelper(String path) {
 		this.file = new File(path);
 		this.byteBuffer = "";
 		this.initFile();
 	}
 
-	
 	private void initFile() {
 		try {
 			this.fileOutputStream = new FileOutputStream(this.file);
@@ -29,7 +28,5 @@ public abstract class FileWriteHelper implements FileContentReader {
 			e.printStackTrace();
 		}
 	}
-
-	
 	public abstract void writeToFile();
 }

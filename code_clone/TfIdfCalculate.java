@@ -55,12 +55,10 @@ public class TfIdfCalculate {
 
         for (String term : allterm) {
             if (!allterms1.contains(term)) {
-                allterms1.add(term); //project1 unique word
+                allterms1.add(term);
             }
         }
-
     }
-
     public void getUniqueWordProject2(String path2) throws IOException {
         String[] allterm = fileRead(path2);
         for (String term : allterm) {
