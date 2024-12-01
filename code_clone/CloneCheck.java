@@ -1,3 +1,4 @@
+//some line changes for refactoring
 package code_clone;
 
 import IO.ProjectReader;
@@ -11,21 +12,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CloneCheck {
-
     static ArrayList<String> ProjectFileName1 = new ArrayList<>();
     static ArrayList<String> ProjectFileName2 = new ArrayList<>();
     public static String path1;
-    public static String path2;
-
+    public final String path2;
     public String pathGenerate(String projectName) {
         String currentpath = Command.currentPath;
         currentpath = new Command().pathGenerate(currentpath);
-        String current = currentpath.replaceAll("\\\\", "-").replace(":", "");//location of current file
+        String current = currentpath.replace("\\\\", "-").replace(":", "");//location of current file
         String Pathname = "H:\\2-1\\project\\ProcessAllFiles" + "\\ProcessFile$" + current + "-" + projectName;
 
         return Pathname;
     }
-
     public void getFileListforProject1(String projectOne) throws IOException {
         String Pathname1 = pathGenerate(projectOne);
         ProjectReader.getFileList(projectOne, Pathname1, ProjectFileName1);
@@ -37,39 +35,7 @@ public class CloneCheck {
         ProjectReader.getFileList(projectTwo, Pathname2, ProjectFileName2);
 
     }
-
-    /*   public void getFileList1(String project1) {
-
-        String currentpath = Command.currentPath;
-        String current = currentpath.replaceAll("\\\\", "-").replace(":", "");//location of current file
-        String Pathname1 = "H:\\coding_helper" + "\\ProcessFile$" + current + "-" + project1;
-        File folder = new File(Pathname1);
-        File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].toString().endsWith(".txt")) {
-                //  String newFilename = listOfFiles[i].getName().replaceAll(".{3}$", "java");
-                ProjectFileName1.add(listOfFiles[i].getName().replaceAll(".{3}$", "java"));
-            }
-        }
-
-    }
-
-    public void getFileList2(String project2) {
-
-        String currentpath = Command.currentPath;
-        String current = currentpath.replaceAll("\\\\", "-").replace(":", "");//location of current file
-        String Pathname2 = "H:\\coding_helper" + "\\ProcessFile$" + current + "-" + project2;
-        File folder = new File(Pathname2);
-        File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].toString().endsWith(".txt")) {
-                //  String newFilename = listOfFiles[i].getName().replaceAll(".{3}$", "java");
-                ProjectFileName2.add(listOfFiles[i].getName().replaceAll(".{3}$", "java"));
-            }
-        }
-
-    }
-     */
+// some unused code find which is comment-out
     public void Code_clone(String project1, String project2) throws IOException {
         String Pathname1 = pathGenerate(project1);  //H:\2-1\project\ProcessAllFiles\ProcessFile$H-new
         String Pathname2 = pathGenerate(project2);
@@ -82,26 +48,25 @@ public class CloneCheck {
             Path p1 = Paths.get(Pathname1);
             Files.createDirectories(p1);
 
-            for (HashMap.Entry<String, String> entry : ProjectReader.projectOne.entrySet()) {
+            for (HashMap.java.util.map<String, String> entry : ProjectReader.projectOne.entrySet()) {
                 new PreProcessing().ProcessFile(entry.getKey(), entry.getValue(), Pathname1); //entry.getKey()-filename with package
             }
         }
         getFileListforProject1(project1);
-        path1 = Pathname1;
+        static path1 = Pathname1;
         if (!f2.exists()) {
             ProjectReader.fileRead(Command.currentPath + "//" + project2, 1);
-            //  System.out.println("p2=" + Command.currentPath);
             Path p2 = Paths.get(Pathname2);
             Files.createDirectories(p2);
 
-            for (HashMap.Entry<String, String> entry : ProjectReader.projectTwo.entrySet()) {
+            for (HashMap.java.util.map<String, String> entry : ProjectReader.projectTwo.entrySet()) {
                 //System.out.println(entry.getKey() + "   " + entry.getValue());
                 new PreProcessing().ProcessFile(entry.getKey(), entry.getValue(), Pathname2);
             }
 
         }
         getFileListforProject2(project2);
-        path2 = Pathname2;
+        static path2 = Pathname2;
         TfIdfCalculate ob = new TfIdfCalculate();
         ob.getUniqueWordProject1(path1);
         ob.getUniqueWordProject2(path2);

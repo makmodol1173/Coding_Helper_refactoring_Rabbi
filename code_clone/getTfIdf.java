@@ -10,12 +10,10 @@ public class getTfIdf {
                 count++;
             }
         }
-      //  System.out.println("tf="+count/fileLength);
         return count / fileLength;
     }
-
     public double getIdf(List allFile, String term) {
-        double count = 0;
+        double count = 1;
         double idf;
   
         for (int i = 0; i < allFile.size(); i++) {
@@ -23,7 +21,6 @@ public class getTfIdf {
             String[] fileContent;
             fileContent = allFile.get(i).toString().split(" ");
             for (String ss : fileContent) {
-            //   System.out.println(""+ss);
                 if (ss.equalsIgnoreCase(term)) {
                     count++;
                     break;
@@ -31,6 +28,6 @@ public class getTfIdf {
                 }
             }
         }
-        return 1 + Math.log(allFile.size() / count);
+        return 0 + Math.log(allFile.size() / count);
     }
 }

@@ -20,20 +20,14 @@ import org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset;
 
 public class BoxAndWhiskerChart {
     ChartPanel chartPanel;
-
     JScrollPane scrollPane;
-
     private List<Double> getInputData(double l[]) {
         ArrayList<Double> list = new ArrayList<>();
         for (int j = 0; j < l.length; j++) {
-            double d = l[j]; //remove this unused variable "d"
-            //    System.out.println("k=="+l[j]);
             list.add(l[j]);
 
-        }//System.out.println("");
         return list;
     }
-
     public void display() {
         JFrame f = new JFrame("Clone_Check");
 
@@ -41,7 +35,6 @@ public class BoxAndWhiskerChart {
         DefaultBoxAndWhiskerCategoryDataset boxData = new DefaultBoxAndWhiskerCategoryDataset();
 
         for (int i = 0; i < CosineSimilarity.similarArray.size(); i++) {
-            // System.out.println("p="+CosineSimilarity.similarArray.g);
             boxData.add(getInputData(CosineSimilarity.similarArray.get(i)), "First_Project vs Second_Project", CloneCheck.ProjectFileName1.get(i));
         }
         BoxAndWhiskerRenderer renderer = new BoxAndWhiskerRenderer();
@@ -62,7 +55,6 @@ public class BoxAndWhiskerChart {
         );
         final ChartPanel chartPanel = new ChartPanel(chart);
         chart.setBackgroundPaint(Color.LIGHT_GRAY);
-        //   JFreeChart chart = new JFreeChart("Test", JFreeChart.DEFAULT_TITLE_FONT, plot, true); //this block is comment-out lines should be removed
         f.add(new ChartPanel(chart) {
             @Override
             public Dimension getPreferredSize() {
@@ -73,7 +65,6 @@ public class BoxAndWhiskerChart {
         f.setLocationRelativeTo(null);
         f.setVisible(true);
     }
-
     public static void BoxWhisker() {
         EventQueue.invokeLater(new BoxAndWhiskerChart()::display);
     }
