@@ -26,7 +26,7 @@ public class BoxAndWhiskerChart {
     private List<Double> getInputData(double l[]) {
         ArrayList<Double> list = new ArrayList<>();
         for (int j = 0; j < l.length; j++) {
-            double d = l[j];
+            double d = l[j]; //remove this unused variable "d"
             //    System.out.println("k=="+l[j]);
             list.add(l[j]);
 
@@ -62,7 +62,7 @@ public class BoxAndWhiskerChart {
         );
         final ChartPanel chartPanel = new ChartPanel(chart);
         chart.setBackgroundPaint(Color.LIGHT_GRAY);
-        //   JFreeChart chart = new JFreeChart("Test", JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+        //   JFreeChart chart = new JFreeChart("Test", JFreeChart.DEFAULT_TITLE_FONT, plot, true); //this block is comment-out lines should be removed
         f.add(new ChartPanel(chart) {
             @Override
             public Dimension getPreferredSize() {
