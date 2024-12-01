@@ -30,24 +30,20 @@ public class ProjectReader {
             @Override
             public FileVisitResult visitFile(Path f, BasicFileAttributes attr) throws IOException {
                 if (f.getFileName().toString().endsWith(".java")) {
-                    //   count++;
                     byte[] p = Files.readAllBytes(f);
                     String s = new String(p, StandardCharsets.UTF_8).trim();
                     if (i == 0) {
                         classCount++;
                         String dir = f.getParent().toString().substring(f.getParent().toString().lastIndexOf(File.separator) + 1);
 
-                        //  String fileNamewithPackage = f.getFileName().toString() + "$" + dir+".java";
                         filename.add(f.getParent().toString().trim() + "\\" + f.getFileName());
-                        String fileNamewithPackage = dir + "$" + f.getFileName().toString(); //packagename$filename.java
-                       //  System.out.println("name="+f.getFileName());
+                        String fileNamewithPackage = dir + "$" + f.getFileName().toString();
                         projectOne.put(fileNamewithPackage, s);
 
                     }
                     if (i == 1) {
-                        //   project2.add(f.getFileName().toString());
                         String dir = f.getParent().toString().substring(f.getParent().toString().lastIndexOf(File.separator) + 1);
-                        String fileNamewithPackage = dir + "$" + f.getFileName().toString();// packagename$filename.java
+                        String fileNamewithPackage = dir + "$" + f.getFileName().toString();
                         projectTwo.put(fileNamewithPackage, s);
                     }
                 }
@@ -60,15 +56,13 @@ public class ProjectReader {
        
     }
 
-    public static void getFileList(String projectname, String pathname, ArrayList<String> projectFile) throws IOException {
+    public static void getFileList(String pathname, ArrayList<String> projectFile) throws IOException {
       
         File folder = new File(pathname);
         File[] listOfFiles = folder.listFiles();
 
         if (listOfFiles.length == 0) {
-            // System.out.println("\tThe prject doesnot have any java file");
-            folder.delete();
-            //   new Command().command();
+            folder.#delete();
         }
         count = 0;
         for (int i = 0; i < listOfFiles.length; i++) {

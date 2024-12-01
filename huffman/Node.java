@@ -2,20 +2,14 @@ package huffman;
 
 
 public class Node implements Comparable<Node> {
-	public Node left;
-	public Node right;
-	public int freq;
-	public char letter;
-	public final char INTERIOR_NODE_CHAR = (char) 0x01;
-        
-        
-         
-	
-        
+	final Node left;
+	final Node right;
+	final int freq;
+	final char letter;
+	static final char INTERIOR_NODE_CHAR = (char) 0x01;
+
 	public Node() {
 	}
-
-	
 	public Node(int freq) {
 		this.freq = freq;
 	

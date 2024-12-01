@@ -10,10 +10,7 @@ public class FileCount {
         try {
             ProjectReader.fileRead(path, 0);
             totalClass = ProjectReader.classCount;
-            System.out.println("\tTotal number of file:" + totalClass);
             ProjectReader.classCount = 0;
-        } catch (Exception e) {
-            System.out.println("Invalid Input");
         }
         return totalClass;
     }

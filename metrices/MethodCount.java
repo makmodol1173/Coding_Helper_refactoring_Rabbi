@@ -17,9 +17,6 @@ public class MethodCount {
         System.out.println("\tTotal methods:" + totalMethods);
         ProjectReader.count = 0;
         Search.ProjectFileName.clear();
-    }catch(Exception e){
-    
-    
     }}
 }
 
